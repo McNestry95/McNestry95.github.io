@@ -1,49 +1,103 @@
-.div1{
-    background: linear-gradient(5deg, rgba(6,113,144,1) 0%, rgba(0,255,204,1) 100%);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height:100%;
-    width:100%;
+*, *::before, *::after{
+    box-sizing:border-box;
+    font-family: Rockwell Condensed;
+    color:white;
+    font-size: 30px;
 }
+
+body{
+    padding: 0;
+    margin: 0;
+    display:flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items:center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(5deg, rgba(6,113,144,1) 0%, rgba(0,255,204,1) 100%);
+}
+
+.background{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width: 100vw;
+    max-height: 100vh;
+}
+
 .container{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height:100%;
-    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    position:absolute;
+    width:800px;
+    max-width:80%;
+    padding: 10px;  
+
+}
+
+.controls{
+    display: flex;
+    justify-content: center; 
+    align-items:center;
+}
+.btn{
+    background-color:rgba(6,113,144,1);
+    border:none;
+    padding:10px, 5px;
+    transition: background-color 100ms ease-out 100ms;
+    transition: color 100ms ease-out 100ms;
+}
+
+.btn:hover{
+    color:rgba(6,113,144,1);
+    background-color:white; 
+}
+.btn-grid{
+    display:grid;
+    grid-template-columns: repeat(2, auto);
+    gap:10px;
+    margin: 20px;
+}
+
+.start,.next{
+    font-size: 50px;
+    font-weight:bold;
+    padding:10px,20px;
+} 
+
+.hide {
+    display:none;
 }
 .logo{
+    animation: pulse 7s infinite linear;
     display:block;
-    width:50%;
+    width:70%;
     margin-left: auto;
     margin-right: auto;
 }
 .wheel1{
     animation: rotation1 14s infinite linear;
-    position: fixed;
-    top: -50%;
-    left: 0%;
-    width:100%;
+    position: absolute;
+    width:100vw;
     height:auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 .wheel2{
     animation: rotation1 10s infinite linear;
-    position: fixed;
-    top: -50%;
-    left: 0%;
-    width:100%;
-    height:auto;
-}
-.wheel3{
+    position: absolute;
+    width:100vw;
+    margin-left: auto;
+    margin-right: auto;
+}.wheel3{
     animation: rotation2 16s infinite linear;
-    position: fixed;
-    top: -50%;
-    left: 0%;
-    width:100%;
-    height:auto;
+    position: absolute;
+    width:100vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 @keyframes rotation1{
     from {
@@ -59,5 +113,16 @@
     }
     to {
       transform: rotate(-359deg);
+    }
+}
+@keyframes pulse{
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
     }
 }
