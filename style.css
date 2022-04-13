@@ -38,10 +38,23 @@ body{
 
 }
 
+.question{
+    text-shadow: 0 0 10 2;
+}
+
 .controls{
     display: flex;
     justify-content: center; 
     align-items:center;
+}
+
+.question-container{
+    align-items:center;
+    display: flex;
+    justify-content: center; 
+}
+.playsound{
+    
 }
 .btn{
     background-color:rgba(6,113,144,1);
@@ -79,7 +92,7 @@ body{
     margin-right: auto;
 }
 .wheel1{
-    animation: rotation1 14s infinite linear;
+    animation: rotation1 13s infinite linear;
     position: absolute;
     width:100vw;
     height:auto;
@@ -93,6 +106,13 @@ body{
     margin-left: auto;
     margin-right: auto;
 }.wheel3{
+    animation: rotation2 17s infinite linear;
+    position: absolute;
+    width:100vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+.wheel4{
     animation: rotation2 16s infinite linear;
     position: absolute;
     width:100vw;
