@@ -2,9 +2,12 @@
     box-sizing:border-box;
     font-family: Rockwell Condensed;
     color:white;
-    font-size: 30px;
+
 }
 
+:root{
+    font-size: 62.5%;
+}
 body{
     padding: 0;
     margin: 0;
@@ -18,6 +21,11 @@ body{
     background: linear-gradient(5deg, rgba(6,113,144,1) 0%, rgba(0,255,204,1) 100%);
 }
 
+h1{
+    font-size: 3rem;
+    text-shadow: 0.3rem 0.3rem 0.4rem darkslategrey;
+}
+
 .background{
     display:flex;
     justify-content: center;
@@ -25,65 +33,88 @@ body{
     width: 100vw;
     max-height: 100vh;
 }
-
 .container{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
     position:absolute;
-    width:800px;
-    max-width:80%;
-    padding: 10px;  
-
-}
-
-.question{
-    text-shadow: 0 0 10 2;
-}
-
-.controls{
-    display: flex;
-    justify-content: center; 
-    align-items:center;
-}
-
-.question-container{
-    align-items:center;
-    display: flex;
-    justify-content: center; 
-}
-.playsound{
-    
+    max-width:80rem;
+    margin: 0 auto;
 }
 .btn{
     background-color:rgba(6,113,144,1);
+    font-size: 4rem;
+    width: 20rem;
+    margin: 1rem;
     border:none;
-    padding:10px, 5px;
-    transition: background-color 100ms ease-out 100ms;
-    transition: color 100ms ease-out 100ms;
+    text-align:center;
+    padding: 0.6rem 1.4rem 0.8rem 1.4rem;
+    text-decoration:none;
 }
-
 .btn:hover{
     color:rgba(6,113,144,1);
     background-color:white; 
+    transition: background-color 120ms ease-out 120ms;
+    transition: color 120ms ease-out 120ms;
 }
 .btn-grid{
     display:grid;
     grid-template-columns: repeat(2, auto);
     gap:10px;
-    margin: 20px;
+    margin: 20px 0;
 }
 
-.start,.next{
-    font-size: 50px;
-    font-weight:bold;
-    padding:10px,20px;
-} 
-
-.hide {
-    display:none;
+  
+.flex-column {
+    display: flex;
+    flex-direction: column;
 }
+  
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+  
+.justify-center {
+    justify-content: center;
+}
+  
+.text-center {
+    text-align: center;
+}
+  
+.hidden {
+    display: none;
+}
+.choice-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 1.8rem;
+    background-color:rgba(6,113,144,1);
+}
+
+.choice-text {
+    padding: 1.5rem;
+    width:100%;
+}
+
+.choice-container:hover > .choice-text{
+    color:rgba(6,113,144,1);
+    background-color:white; 
+    transition: background-color 120ms ease-out 120ms;
+    transition: color 120ms ease-out 120ms
+}
+.choice-container:hover {
+    color:rgba(6,113,144,1);
+    background-color:white; 
+    transition: background-color 120ms ease-out 120ms;
+    transition: color 120ms ease-out 120ms
+}
+
 .logo{
     animation: pulse 7s infinite linear;
     display:block;
