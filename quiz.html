@@ -15,21 +15,24 @@
         <img class = "wheel3" src ="Assets/Pictures/wheel3.png">
         <img class = "wheel4" src ="Assets/Pictures/wheel4.png">
         <div class="container">
-            <img class="logo"   src ="Assets/Pictures/quizlogowhite.png">
-            <div id="game" class="justify-center flex-column">
-            <h1>How well do you know your gaming sounds?</h1>
+            <img class="logoSmall"   src ="Assets/Pictures/quizlogowhite.png">
+            <div class="game">
+            <h1 id="question">How well do you know your gaming sounds?</h1>
                 <div class="choice-container">
-                    <div class="choice-text">Choice 1</div>
+                    <div class="choice-text" data-number="1">Choice 1</div>
                 </div>
                 <div class="choice-container">
-                    <div class="choice-text">Choice 2</div>
+                    <div class="choice-text" data-number="2">Choice 2</div>
                 </div>
                 <div class="choice-container">
-                    <div class="choice-text">Choice 3</div>
+                    <div class="choice-text" data-number="3">Choice 3</div>
                 </div>
                 <div class="choice-container">
-                    <div class="choice-text">Choice 4</div>
+                    <div class="choice-text" data-number="4">Choice 4</div>
                 </div>
+                    <audio controls class = "audioPlayer" id= "question-audio">
+                        <source src="" ></source>
+                    </audio>
             </div>
         </div>
     </div>
