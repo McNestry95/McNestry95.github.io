@@ -1,6 +1,7 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 var questionAudio = document.getElementById('question-audio');
+const scoreText = document.getElementById('score');
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -93,7 +94,7 @@ let questions = [
     ];
 
 
-const CORRECT_BONUS = 10;
+const CORRECT_BONUS = 1;
 const MAX_QUESTIONS = 10;
 
 startGame = () => {
@@ -137,6 +138,11 @@ choices.forEach(choice => {
 
         const classToApply = 
             selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+        if (classToApply == "correct"){
+            addScore(CORRECT_BONUS);
+        }
+
         selectedChoice.parentElement.classList.add(classToApply)
         questionAudioSrc = currentQuestion.audio;
         questionAudio.src = questionAudioSrc;
@@ -147,6 +153,9 @@ choices.forEach(choice => {
     });
 });
 
-
+addScore = num => {
+    score += num;
+    scoreText.innerText = score;
+}
 
 startGame();
