@@ -23,12 +23,21 @@ body{
 h1{
     font-size: 3rem;
     text-shadow: 0.3rem 0.3rem 0.4rem darkslategrey;
+    text-align: center;
 }
 
 h2{
     font-size: 3rem;
     text-shadow: 0.3rem 0.3rem 0.4rem darkslategrey;
     margin: 0.5rem;
+    text-align: center;
+}
+h3{
+    font-size: 7rem;
+    text-shadow: 0.3rem 0.3rem 0.4rem darkslategrey;
+    margin: 0.5rem;
+    animation: pulse 1s infinite linear;
+    text-align: center;
 }
 
 .audioPlayer{

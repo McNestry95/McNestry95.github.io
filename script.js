@@ -9,6 +9,7 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
+
 let questions = [
     {
         question: "In which game might you hear this sound?",
@@ -91,13 +92,22 @@ let questions = [
         answer: 3,
         audio: "Assets/Audio/Oddworld.mp3"
     },
+    {
+        question: "Who makes this sound?",
+        choice1: "Crash Bandicoot",
+        choice2: "Spyro",
+        choice3: "Rayman",
+        choice4: "Sonic The Hedghog",
+        answer: 1,
+        audio: "Assets/Audio/Crash Bandicoot.mp3"
+    },
     ];
 
 
-const CORRECT_BONUS = 1;
-const MAX_QUESTIONS = 10;
+const CORRECT_BONUS = 1; //score when getting a question correc
+const MAX_QUESTIONS = 10; //max number of questions 
 
-startGame = () => {
+startGame = () => { //initial game start 
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
@@ -107,16 +117,35 @@ startGame = () => {
 
 getNewQuestion = () =>{
     
-    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        return window.location.assign("/index.html");
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) { //If statement to keep track of available questions in the array
+        localStorage.setItem('mostRecentScore', score); //records final score to local storage 
+        if (score = 0){ //if else statement to record a sassy score message based on performance
+            localStorage.setItem('scoreMessage', "I mean, that was just truly dreadful."); 
+        }
+        if (score == MAX_QUESTIONS){
+            localStorage.setItem('scoreMessage', "Wow, maximum points... get outside more.");
+        }
+        if (score >= (0.8 * MAX_QUESTIONS)){
+            localStorage.setItem('scoreMessage', "Excelent knowledge of your gaming sounds! Nerd.");
+        }
+        if (score >= (0.6 * MAX_QUESTIONS)){
+            localStorage.setItem('scoreMessage', "A reasonable effort!");
+        }
+        if (score = (0.5 * MAX_QUESTIONS)){
+            localStorage.setItem('scoreMessage', "I guess half a job will have to do for now.");
+        }
+        if (score <= (0.5 * MAX_QUESTIONS)){
+            localStorage.setItem('scoreMessage', "Well done for taking part, I guess?");
+        }
+        return window.location.assign("/scorescreen.html"); //send user to score screen once questions run out
     }
     questionCounter++;
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length); //randomly selects new question from array 
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
     questionAudioSrc = currentQuestion.audio;
     questionAudio.src = questionAudioSrc;
-    choices.forEach( choice =>{
+    choices.forEach( choice =>{ //compares answer to correct choice 
         const number = choice.dataset['number']
         choice.innerText = currentQuestion['choice' + number];
     })
@@ -153,7 +182,7 @@ choices.forEach(choice => {
     });
 });
 
-addScore = num => {
+addScore = num => { //adds live score to quiz page 
     score += num;
     scoreText.innerText = score;
 }
