@@ -18,6 +18,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background: linear-gradient(5deg, rgba(6,113,144,1) 0%, rgba(0,255,204,1) 100%);
+    overflow: hidden;
 }
 
 h1{

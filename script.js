@@ -119,24 +119,26 @@ getNewQuestion = () =>{
     
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) { //If statement to keep track of available questions in the array
         localStorage.setItem('mostRecentScore', score); //records final score to local storage 
-        if (score = 0){ //if else statement to record a sassy score message based on performance
-            localStorage.setItem('scoreMessage', "I mean, that was just truly dreadful."); 
-        }
-        if (score == MAX_QUESTIONS){
+
+        if (score === MAX_QUESTIONS){ //if else statement to record a sassy score message based on performance
             localStorage.setItem('scoreMessage', "Wow, maximum points... get outside more.");
         }
-        if (score >= (0.8 * MAX_QUESTIONS)){
+        else if (score >= (0.8 * MAX_QUESTIONS) && (score != MAX_QUESTIONS)){
             localStorage.setItem('scoreMessage', "Excelent knowledge of your gaming sounds! Nerd.");
         }
-        if (score >= (0.6 * MAX_QUESTIONS)){
+        else if (score > (0.5 * MAX_QUESTIONS) && (score < 0.8 * MAX_QUESTIONS)){
             localStorage.setItem('scoreMessage', "A reasonable effort!");
         }
-        if (score = (0.5 * MAX_QUESTIONS)){
+        else if (score == (0.5 * MAX_QUESTIONS)){
             localStorage.setItem('scoreMessage', "I guess half a job will have to do for now.");
         }
-        if (score <= (0.5 * MAX_QUESTIONS)){
+        else if (score < (0.5 * MAX_QUESTIONS) && (score > 0)){
             localStorage.setItem('scoreMessage', "Well done for taking part, I guess?");
         }
+        else { 
+            localStorage.setItem('scoreMessage', "Well, that was pretty bad."); 
+        }
+
         return window.location.assign("/scorescreen.html"); //send user to score screen once questions run out
     }
     questionCounter++;
